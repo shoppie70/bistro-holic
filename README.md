@@ -21,6 +21,7 @@ python3 -m http.server 8000 --bind 127.0.0.1 --directory dist
 | ディナー | `dist/dinner/index.html` |
 | 店主のこだわり | `dist/chef/index.html` |
 | 共通スタイル・アニメーション | `dist/styles.css`、`dist/hero.css`、`dist/site.js` |
+| トップの昼夜セクション調整 | `dist/meals.css` |
 
 ## 現在のデザイン
 
