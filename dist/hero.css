@@ -1,0 +1,259 @@
+/* Paper and the brown wordmark lead into the photographic spread. */
+.hero {
+  overflow: hidden;
+  background: var(--paper);
+  color: var(--ink);
+  padding-top: 26px;
+}
+.hero-location {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  color: var(--accent);
+}
+.hero-location span:first-child {
+  font: italic 24px/1.4 var(--serif);
+}
+.hero-location span:last-child {
+  font: 10px/1.8 var(--body);
+  letter-spacing: .12em;
+  color: var(--muted);
+}
+.hero-brand {
+  color: var(--wine);
+  margin-top: 13px;
+}
+.hero-wordmark {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  font: 400 clamp(120px, 27vw, 430px)/.78 var(--serif);
+  letter-spacing: -.055em;
+  padding-block: .045em .12em;
+}
+.hero-wordmark span {
+  display: block;
+}
+.hero-scene {
+  position: relative;
+  isolation: isolate;
+  width: calc(100% - var(--gutter) * 2);
+  max-width: 1440px;
+  height: clamp(460px, 46vw, 680px);
+  margin-inline: auto;
+  overflow: hidden;
+  background: #231811;
+  color: var(--paper);
+}
+.hero-image {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+}
+.hero-image img {
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 49%;
+  transform: scale(var(--hero-scale, 1.055));
+  filter: brightness(.9) saturate(.92);
+}
+.hero-scene::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  inset: 0;
+  background: linear-gradient(90deg, #1d120c1a, transparent 40%, #1c110da6), linear-gradient(0deg, #160e0b94, transparent 60%);
+}
+.hero-content {
+  position: relative;
+  height: 100%;
+}
+.hero-title {
+  position: absolute;
+  top: 38px;
+  right: 4.5%;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font: 500 clamp(32px, 3.2vw, 50px)/1.9 var(--jp);
+  letter-spacing: .13em;
+  text-shadow: 0 2px 28px #130a0859;
+}
+.hero-title span {
+  display: block;
+  white-space: nowrap;
+}
+.hero-title span:last-child {
+  padding-top: 1.7em;
+}
+.hero-inset {
+  position: absolute;
+  left: 32px;
+  bottom: 32px;
+  width: clamp(180px, 18vw, 250px);
+}
+.hero-inset img {
+  aspect-ratio: 1.55;
+  object-fit: cover;
+  object-position: 49% 57%;
+  border: 1px solid #f3efe65c;
+  box-shadow: 0 10px 45px #190a0a30;
+}
+.hero-inset figcaption {
+  margin-top: 12px;
+  font: 400 12px/1.8 var(--jp);
+  letter-spacing: .1em;
+  white-space: nowrap;
+}
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-block: 10px;
+}
+.hero-bottom a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 38px;
+  min-height: 44px;
+  font: 12px/1.7 var(--body);
+  letter-spacing: .09em;
+}
+.hero-bottom a span {
+  font: 22px/1 var(--serif);
+  transition: transform .3s;
+}
+.hero-bottom a:hover span {
+  transform: translateY(3px);
+}
+/* The wordmark arrives first, then opens a view onto the table. */
+html.motion-ready .hero-wordmark span {
+  animation: brand-in 1.1s cubic-bezier(.16, 1, .3, 1) both;
+  animation-delay: calc(var(--letter, 0) * 55ms);
+}
+html.motion-ready .hero-scene {
+  animation: open-table 1.3s .12s cubic-bezier(.16, 1, .3, 1) both;
+}
+html.motion-ready .hero-title span {
+  animation: ink-in 1.2s .28s cubic-bezier(.16, 1, .3, 1) both;
+}
+html.motion-ready .hero-title span:last-child {
+  animation-delay: .46s;
+}
+html.motion-ready .hero-inset {
+  animation: room-in 1.15s .4s cubic-bezier(.16, 1, .3, 1) both;
+}
+.hero-wordmark span:nth-child(2) { --letter: 1; }
+.hero-wordmark span:nth-child(3) { --letter: 2; }
+.hero-wordmark span:nth-child(4) { --letter: 3; }
+.hero-wordmark span:nth-child(5) { --letter: 4; }
+@keyframes open-table {
+  from { clip-path: inset(0 0 100%); }
+  to { clip-path: inset(0); }
+}
+@keyframes ink-in {
+  from { opacity: 0; clip-path: inset(0 0 100%); transform: translateY(-15px); }
+  to { opacity: 1; clip-path: inset(0); transform: translateY(0); }
+}
+@keyframes room-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes brand-in {
+  from { transform: translateY(115%); }
+  to { transform: translateY(0); }
+}
+@media (max-width: 1000px) and (min-width: 701px) {
+  .hero-title { right: 24px; }
+  .hero-inset { left: 24px; bottom: 24px; width: 23vw; }
+}
+@media (max-width: 700px) {
+  .hero {
+    padding-top: 22px;
+  }
+  .hero-location {
+    gap: 12px;
+  }
+  .hero-location span:first-child {
+    font-size: 17px;
+  }
+  .hero-location span:last-child {
+    font-size: 8px;
+    letter-spacing: 0;
+  }
+  .hero-brand {
+    margin-top: 12px;
+  }
+  .hero-wordmark {
+    font-size: 28vw;
+    line-height: .85;
+    padding-block: .045em .12em;
+  }
+  .hero-scene {
+    width: calc(100% - 24px);
+    height: clamp(450px, 59svh, 570px);
+  }
+  .hero-image img {
+    object-position: 43% 49%;
+  }
+  .hero-scene::after {
+    background: linear-gradient(90deg, #21130e0d, transparent 38%, #21130e91), linear-gradient(0deg, #180e0bc4, transparent 65%);
+  }
+  .hero-title {
+    top: 28px;
+    right: 16px;
+    font-size: clamp(29px, 8vw, 40px);
+    line-height: 1.9;
+    letter-spacing: .12em;
+  }
+  .hero-title span:last-child {
+    padding-top: 1.9em;
+  }
+  .hero-inset {
+    left: 18px;
+    bottom: 23px;
+    width: 38%;
+  }
+  .hero-inset img {
+    aspect-ratio: 1.15;
+    object-position: 47% 55%;
+  }
+  .hero-inset figcaption {
+    font-size: 9px;
+    margin-top: 9px;
+    letter-spacing: .015em;
+  }
+  .hero-bottom {
+    gap: 20px;
+    padding-block: 7px;
+  }
+  .hero-bottom a {
+    font-size: 10px;
+    gap: 13px;
+    letter-spacing: .03em;
+  }
+  .hero-bottom a:last-child {
+    font-size: 8px;
+    gap: 8px;
+  }
+  .hero-bottom a span {
+    font-size: 17px;
+  }
+}
+@media (max-width: 360px) {
+  .hero-location span:first-child { font-size: 15px; }
+  .hero-location span:last-child { font-size: 7px; }
+  .hero-title { right: 12px; font-size: 29px; line-height: 1.8; }
+  .hero-bottom a { font-size: 9px; gap: 8px; }
+  .hero-bottom a:last-child { font-size: 7px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-image img { transform: none; }
+  html.motion-ready .hero-scene,
+  html.motion-ready .hero-title span,
+  html.motion-ready .hero-inset,
+  html.motion-ready .hero-wordmark span { animation: none; }
+}
