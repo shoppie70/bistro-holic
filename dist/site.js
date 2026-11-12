@@ -1,19 +1,19 @@
-const scene = document.querySelector('[data-dinner-scene]');
-const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+const chapters = document.querySelectorAll('[data-reveal]');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
 
-if (scene && 'IntersectionObserver' in window && !reduceMotion.matches) {
-  const top = scene.getBoundingClientRect().top;
+if ('IntersectionObserver' in window && !reducedMotion.matches) {
+  const observer = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add('is-revealed');
+      observer.unobserve(entry.target);
+    }
+  }, { rootMargin: '0px 0px -10% 0px' });
 
-  // Deep links and restored scroll positions should show the complete section.
-  if (top > window.innerHeight * 0.88) {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return;
-
-      scene.classList.add('is-revealed');
-      observer.disconnect();
-    }, { rootMargin: '0px 0px -13% 0px' });
-
-    scene.classList.add('will-reveal');
-    observer.observe(scene);
+  for (const chapter of chapters) {
+    // Preserve fully visible images when returning to a scroll position or opening a fragment.
+    if (chapter.getBoundingClientRect().top <= window.innerHeight * 0.9) continue;
+    chapter.classList.add('will-reveal');
+    observer.observe(chapter);
   }
 }
