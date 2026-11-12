@@ -5,35 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Bistro HOLICの料理ができるまで。オムライスのデミグラス、自家製の田舎風パテ、ペペロンチーノの味の組み立て。">
-  <meta name="theme-color" content="#161411">
+  <meta name="theme-color" content="#f3efe6">
   <title>店主のこだわり｜Bistro HOLIC 中村橋</title>
+  <link rel="preload" href="../assets/shippori-regular.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../assets/zen-kaku-regular.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="../styles.css">
   <script src="../site.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">本文へ</a>
   <header class="header">
-    <a class="wordmark" href="../" aria-label="Bistro HOLIC トップ">
-      <span class="wordmark-bistro" aria-hidden="true">BISTRO</span>
-      <span class="wordmark-holic" aria-hidden="true">HOLIC</span>
-    </a>
-    <nav class="nav" aria-label="メインメニュー">
-      <a href="../lunch/">ランチ</a>
-      <a href="../dinner/">ディナー</a>
-      <a href="../chef/" aria-current="page">店主のこだわり</a>
-      <a href="../#visit">アクセス</a>
-    </nav>
-    <details class="mobile-menu">
-      <summary>メニュー <span aria-hidden="true"></span></summary>
-      <nav aria-label="メインメニュー">
-        <a href="../lunch/">ランチ</a>
-        <a href="../dinner/">ディナー</a>
-        <a href="../chef/" aria-current="page">店主のこだわり</a>
-        <a href="../#visit">アクセス</a>
-      </nav>
-    </details>
-    <a class="booking booking-header" href="https://www.hotpepper.jp/strJ004678075/yoyaku/">ご予約 <span aria-hidden="true">↗</span></a>
+    <a class="wordmark" href="../" aria-label="Bistro HOLIC トップ"><span class="wordmark-bistro">BISTRO</span><span class="wordmark-holic">HOLIC</span></a>
+    <nav class="nav" aria-label="メインメニュー"><a href="../lunch/">ランチ</a><a href="../dinner/">ディナー</a><a href="../chef/">店主のこだわり</a><a href="../#visit">アクセス</a></nav>
+    <div class="header-actions"><a class="booking booking-header" href="https://www.hotpepper.jp/strJ004678075/yoyaku/">ご予約 <span aria-hidden="true">↗</span></a><button class="menu-toggle" type="button" aria-label="メニューを開く" aria-controls="site-menu"><span>MENU</span><i aria-hidden="true"></i></button></div>
   </header>
+  <noscript><style>.home .header{position:relative;background:var(--wine)}.menu-toggle{display:none!important}</style><nav class="navigation-fallback" aria-label="ページ一覧"><a href="../lunch/">ランチ</a><a href="../dinner/">ディナー</a><a href="../chef/">店主のこだわり</a><a href="../#visit">アクセス</a></nav></noscript>
+  <dialog class="site-menu" id="site-menu" aria-label="サイトメニュー">
+    <div class="menu-top"><span class="menu-signature">Bistro HOLIC</span><button class="menu-close" type="button" aria-label="メニューを閉じる">CLOSE <span aria-hidden="true">×</span></button></div>
+    <nav aria-label="ページ一覧"><a href="../lunch/"><span>Lunch</span><small>ランチ</small></a><a href="../dinner/"><span>Dinner</span><small>ディナー</small></a><a href="../chef/"><span>Our story</span><small>店主のこだわり</small></a><a href="../#visit"><span>Visit us</span><small>アクセス</small></a></nav>
+    <div class="menu-bottom"><p>東京・中村橋<br>西武池袋線 中村橋駅から徒歩約3分</p><a class="text-link" href="https://www.hotpepper.jp/strJ004678075/yoyaku/">空席確認・ご予約 <span aria-hidden="true">↗</span></a></div>
+  </dialog>
   <main id="main" class="detail lunch detail-chef">
     <section class="detail-cover" aria-labelledby="page-title">
       <div class="detail-cover-inner shell">
@@ -44,33 +35,46 @@
           
           <a class="text-link" href="#stories">料理ができるまで <span aria-hidden="true">↓</span></a>
         </div>
-        <picture class="detail-cover-image">
+        <picture class="detail-cover-image photo-window" data-reveal>
           <source media="(max-width: 700px)" srcset="../assets/hero-mobile.webp">
           <img src="../assets/hero.webp" alt="暖色の照明がともるBistro HOLICのカウンターと客席" fetchpriority="high" width="1000" height="563">
         </picture>
       </div>
     </section>
     <div class="chef-stories shell" id="stories">
-      <article class="chef-story" id="demiglace">
-        <h2>デミグラスは、肉を焼くところから。</h2>
-        <div>
+      <article class="chef-story chef-story--lead" data-reveal id="demiglace">
+        <figure class="chef-story-photo">
+          <img src="../assets/lunch-wide.webp" alt="デミグラスソースを添えた鳳凰卵のオムライス" loading="lazy" width="1000" height="563">
+          <figcaption>01　オムライスのデミグラス</figcaption>
+        </figure>
+        <div class="chef-story-copy">
+          <h2>デミグラスは、<br>肉を焼くところから。</h2>
           <p>濃厚な鳳凰卵で包む、ランチのオムライス。デミグラスは肉を焼くところから仕込み、一日かけて煮込みます。自家製トマトソースは、酸味と甘みのバランスを見ながら仕上げます。</p>
           <a class="text-link" href="https://www.instagram.com/holic.1990/reel/Dd8zuAcJ84I/">オムライスの投稿を見る <span aria-hidden="true">↗</span></a>
         </div>
       </article>
-      <article class="chef-story" id="pate">
-        <h2>火を入れて、一晩休ませる。</h2>
-        <div>
+      <article class="chef-story chef-story--reverse" data-reveal id="pate">
+        <figure class="chef-story-photo">
+          <img src="../assets/dinner.webp" alt="田舎風パテや前菜が並ぶディナーの食卓" loading="lazy" width="1440" height="920">
+          <figcaption>02　田舎風パテ</figcaption>
+        </figure>
+        <div class="chef-story-copy">
+          <h2>火を入れて、<br>一晩休ませる。</h2>
           <p>肉をひいて練り、型に詰めてじっくり火を入れる田舎風パテ。焼き上がってから一晩休ませて、ようやく完成です。ディナーの前菜盛り合わせにも登場します。</p>
           <a class="text-link" href="https://www.instagram.com/holic.1990/reel/DdbdZWOp1yU/">田舎風パテの投稿を見る <span aria-hidden="true">↗</span></a>
         </div>
       </article>
-      <article class="chef-story" id="flavor">
-        <h2>ペペロンチーノを支える、魚介の出汁。</h2>
-        <div>
+      <article class="chef-story chef-story--wide" data-reveal id="flavor">
+        <div class="chef-story-copy">
+          <p class="eyebrow">03　味の組み立て</p>
+          <h2>ペペロンチーノを支える、<br>魚介の出汁。</h2>
           <p>店主は、味のバランスを音楽の高音・中音・低音にたとえます。HOLICのペペロンチーノには、香りと旨味の間をつなぐために魚介の出汁を。全体を味わったときのバランスを考えて、一皿を組み立てます。</p>
           <a class="text-link" href="https://www.instagram.com/holic.1990/reel/De4LvG0p20Q/">味の組み立てについての投稿を見る <span aria-hidden="true">↗</span></a>
         </div>
+        <figure class="chef-story-photo">
+          <img src="../assets/wine.webp" alt="店内のカウンターに置かれたワイングラス" loading="lazy" width="740" height="920">
+          <figcaption>香り、旨味、余韻。味わいのバランスを考える。</figcaption>
+        </figure>
       </article>
     </div>
     <nav class="detail-end shell" aria-label="お品書きへ">
@@ -81,18 +85,6 @@
       </div>
     </nav>
   </main>
-  <footer class="footer">
-    <div class="footer-inner shell">
-      <a class="wordmark" href="../" aria-label="Bistro HOLIC トップへ戻る">
-        <span class="wordmark-bistro" aria-hidden="true">BISTRO</span>
-        <span class="wordmark-holic" aria-hidden="true">HOLIC</span>
-      </a>
-      <a class="text-link footer-social" href="https://www.instagram.com/holic.1990/">Instagram <span aria-hidden="true">↗</span></a>
-    </div>
-    <div class="footer-meta shell">
-      <span>© Bistro HOLIC</span>
-      <span>写真参照 <a href="https://bistro-holic.foodre.jp/">店舗掲載ページ</a> / <a href="https://nerima-jmpy.com/bistrohoric-nakamurabashi-202508/">練馬ジモピー局</a></span>
-    </div>
-  </footer>
+  <footer class="footer"><div class="footer-top shell"><p class="footer-salutation" lang="fr">À bientôt.</p><a class="text-link" href="https://www.hotpepper.jp/strJ004678075/yoyaku/">お席のご予約 <span aria-hidden="true">↗</span></a></div><a class="footer-name shell" href="../" aria-label="Bistro HOLIC トップ">HOLIC</a><div class="footer-meta shell"><span>© Bistro HOLIC</span><a href="https://www.instagram.com/holic.1990/">Instagram ↗</a><span class="photo-credits">写真参照 <a href="https://bistro-holic.foodre.jp/">店舗掲載ページ</a> / <a href="https://nerima-jmpy.com/bistrohoric-nakamurabashi-202508/">練馬ジモピー局</a></span></div></footer>
 </body>
 </html>
