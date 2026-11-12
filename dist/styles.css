@@ -1161,12 +1161,16 @@ html.motion-ready .dinner-stage[data-reveal="meal"].reveal-pending .display {
     margin-left:10px;
   }
   .lunch-photo {
-    width:100%;
+    width:calc(100% + var(--gutter)*2);
+    margin-inline:calc(-1 * var(--gutter));
     margin-top:28px;
   }
   .lunch-photo img {
     aspect-ratio:1.02;
     object-position:center;
+  }
+  .lunch-photo .photo-caption {
+    margin-inline:var(--gutter);
   }
   .photo-caption {
     font-size:9px;
