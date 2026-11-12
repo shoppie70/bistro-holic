@@ -4,6 +4,7 @@
   const scene = document.querySelector('.hero-scene');
   let frame = null;
   let observer;
+  let revealRevision = 0;
 
   function updateScene() {
     frame = null;
@@ -15,6 +16,7 @@
     if (frame === null) frame = requestAnimationFrame(updateScene);
   }
   function revealContent() {
+    const revision = ++revealRevision;
     observer?.disconnect();
     document.querySelectorAll('.reveal-pending').forEach(el => el.classList.remove('reveal-pending'));
     root.classList.toggle('motion-ready', !reducedMotion.matches);
@@ -22,8 +24,16 @@
     observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
-        entry.target.classList.remove('reveal-pending');
         observer.unobserve(entry.target);
+        const photos = [...entry.target.querySelectorAll('img')];
+        const reveal = () => {
+          if (revision === revealRevision) entry.target.classList.remove('reveal-pending');
+        };
+        if (photos.length) {
+          // Begin the fade after the image is ready, including slow lazy loads.
+          photos.forEach(photo => { photo.loading = 'eager'; });
+          Promise.allSettled(photos.map(photo => photo.decode())).then(reveal);
+        } else reveal();
       });
     }, { threshold: .08, rootMargin: '0px 0px 35px 0px' });
     document.querySelectorAll('[data-reveal]').forEach(el => {
@@ -34,6 +44,13 @@
     });
   }
   revealContent();
+  document.addEventListener('focusin', event => {
+    const target = event.target.closest('[data-reveal].reveal-pending');
+    if (!target) return;
+    observer?.unobserve(target);
+    target.classList.remove('reveal-pending');
+    target.getAnimations({ subtree: true }).forEach(animation => animation.finish());
+  });
   requestSceneUpdate();
   window.addEventListener('scroll', requestSceneUpdate, { passive: true });
   window.addEventListener('resize', requestSceneUpdate, { passive: true });
