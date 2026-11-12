@@ -48,6 +48,8 @@ node scripts/capture.cjs /tmp/holic-preview
 
 `main` に `dist` またはデプロイ設定の変更をpushすると、[Deploy GitHub Pages](https://github.com/shoppie70/bistro-holic/actions/workflows/pages.yml) が `dist` の内容を公開します。ビルドは不要で、画像・ウェブフォントを含む静的ファイルをそのまま配信します。Actions画面の「Run workflow」から手動での再公開もできます。
 
+公開前にPagesの公開元をGitHub Actionsに揃えます。ブランチからの自動ビルドが並行して動き、公開済みのサイトを上書きすることを防ぎます。
+
 初回はリポジトリの **Settings → Pages → Build and deployment → Source** を **GitHub Actions** に設定します。非公開リポジトリの場合は、GitHub Pagesを利用できるプランが必要です。公開処理が成功したかは、Actionsの実行結果で確認できます。
 
 ## Sitesのホスティング
