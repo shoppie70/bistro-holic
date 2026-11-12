@@ -125,3 +125,119 @@
     font-size: 110px;
   }
 }
+
+/* Lunch and Dinner: matching square photography without losing the dramatic framing. */
+.lunch-feature .lunch-photo img { aspect-ratio:1/1; }
+.dinner-feature { padding-bottom:clamp(85px,9vw,135px); }
+.dinner-feature .dinner-layout {
+  display:grid;
+  grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+  align-items:center;
+  gap:clamp(42px,7vw,125px);
+}
+.dinner-feature .dinner-visual { min-width:0; }
+.dinner-feature .dinner-stage { width:100%; max-width:none; margin:0; }
+.dinner-feature .dinner-photo { width:100%; aspect-ratio:1/1; }
+.dinner-feature .dinner-photo img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:48% 50%;
+}
+.dinner-feature .dinner-stage .display {
+  left:clamp(16px,2vw,32px);
+  bottom:-.11em;
+  font-size:clamp(94px,13vw,192px);
+  white-space:nowrap;
+}
+.dinner-feature .dinner-story { min-width:0; padding-block:12px; }
+.dinner-feature .dinner-copy { margin-top:clamp(28px,4vw,55px); }
+.dinner-feature .dinner-photo-caption .photo-caption { padding-block:12px; }
+
+/* Wine & Course: its own sage-green chapter following Dinner. */
+.wine-section {
+  background:#cdd4c5;
+  color:#29352d;
+  --line:#9ea99a;
+  --muted:#4a584c;
+  --accent:#49241f;
+  padding-block:clamp(68px,8vw,114px) clamp(80px,9vw,128px);
+}
+.wine-section .wine-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:20px;
+  padding-bottom:16px;
+  border-bottom:1px solid var(--line);
+  margin-bottom:clamp(40px,6vw,82px);
+}
+.wine-section .wine-top > p:last-child {
+  font:400 14px/1.7 var(--jp);
+  letter-spacing:.08em;
+}
+.wine-section .wine-feature {
+  display:grid;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,.85fr);
+  align-items:center;
+  gap:clamp(35px,8vw,130px);
+  margin-top:0;
+  padding-top:0;
+  border-top:0;
+}
+.wine-section .wine-copy h2 {
+  font:400 clamp(57px,6.3vw,92px)/.98 var(--serif);
+  letter-spacing:-.028em;
+  color:#49241f;
+}
+.wine-section .wine-copy h2 em { font-weight:400; }
+.wine-section .wine-copy > p {
+  max-width:365px;
+  margin-top:32px;
+  font-size:14px;
+  line-height:2.3;
+  color:#354438;
+}
+.wine-section .wine-copy .text-link { margin-top:20px; font-size:13px; }
+.wine-section .wine-image { width:100%; max-width:500px; margin:0 auto; }
+.wine-section .wine-image img { aspect-ratio:.8; object-fit:cover; }
+@media (max-width:700px) {
+  .dinner-feature .dinner-layout {
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:26px;
+  }
+  .dinner-feature .dinner-visual {
+    width:calc(100% + var(--gutter)*2);
+    margin-inline:calc(-1 * var(--gutter));
+  }
+  .dinner-feature .dinner-photo { aspect-ratio:1/1; }
+  .dinner-feature .dinner-stage .display {
+    left:18px;
+    bottom:-.11em;
+    font-size:clamp(90px,23vw,125px);
+  }
+  .dinner-feature .dinner-photo-caption { margin-inline:var(--gutter); }
+  .dinner-feature .dinner-story { padding:8px 0 0 28px; }
+  .dinner-feature .dinner-story .meal-deck { font-size:25px; }
+  .dinner-feature .dinner-copy { margin-top:25px; }
+  .dinner-feature { padding-bottom:72px; }
+  .wine-section { padding-block:64px 78px; }
+  .wine-section .wine-top { gap:10px; margin-bottom:30px; }
+  .wine-section .wine-top > p:last-child { font-size:12px; }
+  .wine-section .wine-feature {
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:38px;
+  }
+  .wine-section .wine-copy h2 { font-size:clamp(48px,13vw,65px); line-height:1; }
+  .wine-section .wine-copy > p { font-size:13px; margin-top:23px; }
+  .wine-section .wine-image { width:83%; max-width:390px; }
+  .wine-section .wine-image img { aspect-ratio:.8; }
+}
+@media (max-width:360px) {
+  .dinner-feature .dinner-stage .display { font-size:85px; }
+  .wine-section .wine-copy h2 { font-size:46px; }
+}
