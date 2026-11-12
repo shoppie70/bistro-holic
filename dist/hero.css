@@ -87,24 +87,12 @@
 .hero-title span:last-child {
   padding-top: 1.7em;
 }
-.hero-inset {
+.hero-note {
   position: absolute;
   left: 32px;
   bottom: 32px;
-  width: clamp(180px, 18vw, 250px);
-}
-.hero-inset img {
-  aspect-ratio: 1.55;
-  object-fit: cover;
-  object-position: 49% 57%;
-  border: 1px solid #f3efe65c;
-  box-shadow: 0 10px 45px #190a0a30;
-}
-.hero-inset figcaption {
-  margin-top: 12px;
-  font: 400 12px/1.8 var(--jp);
+  font: 400 clamp(13px, 1.2vw, 18px)/1.8 var(--jp);
   letter-spacing: .1em;
-  white-space: nowrap;
 }
 .hero-bottom {
   display: flex;
@@ -143,8 +131,8 @@ html.motion-ready .hero-title span {
 html.motion-ready .hero-title span:last-child {
   animation-delay: .46s;
 }
-html.motion-ready .hero-inset {
-  animation: room-in 1.15s .4s cubic-bezier(.16, 1, .3, 1) both;
+html.motion-ready .hero-note {
+  animation: note-in 1s .4s cubic-bezier(.16, 1, .3, 1) both;
 }
 .hero-wordmark span:nth-child(2) { --letter: 1; }
 .hero-wordmark span:nth-child(3) { --letter: 2; }
@@ -158,8 +146,8 @@ html.motion-ready .hero-inset {
   from { opacity: 0; clip-path: inset(0 0 100%); transform: translateY(-15px); }
   to { opacity: 1; clip-path: inset(0); transform: translateY(0); }
 }
-@keyframes room-in {
-  from { opacity: 0; transform: translateY(24px); }
+@keyframes note-in {
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: translateY(0); }
 }
 @keyframes brand-in {
@@ -168,7 +156,7 @@ html.motion-ready .hero-inset {
 }
 @media (max-width: 1000px) and (min-width: 701px) {
   .hero-title { right: 24px; }
-  .hero-inset { left: 24px; bottom: 24px; width: 23vw; }
+  .hero-note { left: 24px; bottom: 24px; }
 }
 @media (max-width: 700px) {
   .hero {
@@ -212,19 +200,11 @@ html.motion-ready .hero-inset {
   .hero-title span:last-child {
     padding-top: 1.9em;
   }
-  .hero-inset {
+  .hero-note {
     left: 18px;
-    bottom: 23px;
-    width: 38%;
-  }
-  .hero-inset img {
-    aspect-ratio: 1.15;
-    object-position: 47% 55%;
-  }
-  .hero-inset figcaption {
-    font-size: 9px;
-    margin-top: 9px;
-    letter-spacing: .015em;
+    bottom: 26px;
+    font-size: 13px;
+    letter-spacing: .06em;
   }
   .hero-bottom {
     gap: 20px;
@@ -254,6 +234,6 @@ html.motion-ready .hero-inset {
   .hero-image img { transform: none; }
   html.motion-ready .hero-scene,
   html.motion-ready .hero-title span,
-  html.motion-ready .hero-inset,
+  html.motion-ready .hero-note,
   html.motion-ready .hero-wordmark span { animation: none; }
 }

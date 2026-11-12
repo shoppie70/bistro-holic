@@ -1656,6 +1656,11 @@ html.motion-ready .dinner-stage[data-reveal="meal"].reveal-pending .display {
     font-size:11px;
   }
 }
+@media(max-width:360px) {
+  .intro-break {
+    display:none;
+  }
+}
 .navigation-fallback {
   display:flex;
   justify-content:center;
