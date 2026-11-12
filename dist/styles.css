@@ -1239,20 +1239,10 @@ html.motion-ready .dinner-stage[data-reveal="meal"].reveal-pending .display {
   }
   .wine-image {
     width:63%;
-    margin-left:auto;
-    margin-right:0;
+    margin-inline:auto;
   }
   .wine-image img {
     aspect-ratio:.78;
-  }
-  .wine-copy {
-    margin-top:-65px;
-    position:relative;
-    z-index:1;
-    pointer-events:none;
-  }
-  .wine-copy>* {
-    pointer-events:auto;
   }
   .wine-copy>.eyebrow {
     font-size:8px;
@@ -1298,7 +1288,7 @@ html.motion-ready .dinner-stage[data-reveal="meal"].reveal-pending .display {
     align-items:stretch;
   }
   .craft-photo {
-    margin-left:28px;
+    margin-inline:14px;
   }
   .craft-photo img {
     aspect-ratio:1.13;
@@ -1373,7 +1363,7 @@ html.motion-ready .dinner-stage[data-reveal="meal"].reveal-pending .display {
     margin-top:11px;
   }
   .visit-arrival {
-    margin-left:28px;
+    margin-inline:14px;
   }
   .entrance-photo {
     aspect-ratio:1.17;
@@ -1504,7 +1494,7 @@ html.motion-ready .dinner-stage[data-reveal="meal"].reveal-pending .display {
   }
   .detail-course figure {
     width:75%;
-    margin-left:auto;
+    margin-inline:auto;
   }
   .detail-course figure img {
     aspect-ratio:.95;
@@ -1545,7 +1535,7 @@ html.motion-ready .dinner-stage[data-reveal="meal"].reveal-pending .display {
     aspect-ratio:1.2;
   }
   .chef-story--reverse .chef-story-photo {
-    margin-left:28px;
+    margin-inline:14px;
   }
   .chef-story--reverse .chef-story-photo img {
     aspect-ratio:1;
@@ -1568,7 +1558,7 @@ html.motion-ready .dinner-stage[data-reveal="meal"].reveal-pending .display {
   .chef-story--wide .chef-story-photo {
     order:-1;
     width:72%;
-    margin-left:auto;
+    margin-inline:auto;
   }
   .chef-story--wide .chef-story-photo img {
     aspect-ratio:.9;
