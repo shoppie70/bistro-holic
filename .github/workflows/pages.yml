@@ -31,15 +31,16 @@ jobs:
       - name: Check out source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Use GitHub Actions as the Pages source
+      - name: Verify GitHub Pages publishing mode
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           build_type="$(gh api "repos/$GITHUB_REPOSITORY/pages" --jq '.build_type')"
           if [ "$build_type" != "workflow" ]; then
-            gh api --method PUT "repos/$GITHUB_REPOSITORY/pages" -f build_type=workflow --silent
+            echo "::error::Set Settings > Pages > Build and deployment > Source to GitHub Actions before publishing."
+            exit 1
           fi
-          gh api "repos/$GITHUB_REPOSITORY/pages" --jq '"Pages source: " + .build_type'
+          echo "Pages source: $build_type"
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
