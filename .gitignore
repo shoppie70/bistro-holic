@@ -1,1 +1,41 @@
+# macOS
 .DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs / Temporary files
+*.log
+*.tmp
+*.bak
+tmp/
+.tmp/
+
+# Environment / Secrets
+.env
+.env.*
+
+# Node / Python (local tooling)
+node_modules/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Internal / Excluded project files
+.openai/
+design/
+scripts/
