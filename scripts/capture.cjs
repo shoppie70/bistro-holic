@@ -24,9 +24,9 @@ fs.mkdirSync(output, { recursive: true });
    const slug=route==='/'?'home':route.replaceAll('/','');
    await page.screenshot({path:path.join(output,`${name}-${slug}.png`)});
    if (route==='/') {
-    for (const [section,delta] of [['lunch',0],['dinner',0],['craft',0],['visit',0]]) {
+    for (const [section,lead] of [['lunch',180],['dinner',180],['craft',0],['visit',0]]) {
      await page.locator(section==='craft'?'.craft':`#${section}`).scrollIntoViewIfNeeded();
-     await page.evaluate(selector=>{const el=document.querySelector(selector);scrollTo(0,el.getBoundingClientRect().top+scrollY)},section==='craft'?'.craft':`#${section}`);
+     await page.evaluate(({selector,lead})=>{const el=document.querySelector(selector);scrollTo(0,el.getBoundingClientRect().top+scrollY-lead)},{selector:section==='craft'?'.craft':`#${section}`,lead});
      await page.waitForTimeout(1400);
      await page.screenshot({path:path.join(output,`${name}-home-${section}.png`)});
     }

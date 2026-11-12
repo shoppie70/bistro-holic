@@ -355,7 +355,23 @@ a.photo-window:hover img {
   font:italic 70px/1 var(--serif);
 }
 .lunch-feature {
-  padding-block:40px 110px;
+  --section-slope:clamp(32px,5vw,88px);
+  position:relative;
+  margin-top:calc(-1 * var(--section-slope));
+  padding-block:calc(var(--section-slope) + 64px) calc(110px + var(--section-slope));
+  background:#ebe4d8;
+  clip-path:polygon(0 var(--section-slope),100% 0,100% 100%,0 100%);
+}
+.lunch-feature::before,.dinner-feature::before {
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:calc(var(--section-slope) + 1px);
+  pointer-events:none;
+}
+.lunch-feature::before {
+  background:#b9a89280;
+  clip-path:polygon(0 var(--section-slope),100% 0,100% 1px,0 calc(var(--section-slope) + 1px));
 }
 .lunch-layout {
   display:grid;
@@ -419,11 +435,19 @@ a.photo-window:hover img {
   margin-top:22px;
 }
 .dinner-feature {
+  --section-slope:clamp(32px,5vw,88px);
+  position:relative;
+  margin-top:calc(-1 * var(--section-slope));
   background:var(--wine);
   color:var(--paper);
   --line:#9d7e715c;
   --accent:#e1c0a2;
-  padding-block:46px 110px;
+  padding-block:calc(var(--section-slope) + 56px) 110px;
+  clip-path:polygon(0 0,100% var(--section-slope),100% 100%,0 100%);
+}
+.dinner-feature::before {
+  background:#dfb99a80;
+  clip-path:polygon(0 0,100% var(--section-slope),100% calc(var(--section-slope) + 1px),0 1px);
 }
 .dinner-top {
   display:flex;
@@ -940,6 +964,35 @@ html.motion-ready .photo-window.reveal-pending {
 html.motion-ready .photo-window[data-reveal] {
   transition:clip-path 1.2s cubic-bezier(.16,1,.3,1),opacity .8s,transform 1.2s cubic-bezier(.16,1,.3,1);
 }
+/* The meal photographs echo the diagonal section edges as they fade in. */
+html.motion-ready [data-reveal="meal"],
+html.motion-ready .photo-window[data-reveal="meal"] {
+  clip-path:none;
+  transition:opacity .95s ease,transform 1.15s cubic-bezier(.16,1,.3,1);
+}
+html.motion-ready [data-reveal="meal"].reveal-pending {
+  clip-path:none;
+  opacity:0;
+  transform:translateY(20px);
+  transition:none;
+}
+html.motion-ready [data-reveal="meal"] picture {
+  display:block;
+  clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+  transition:clip-path 1.25s cubic-bezier(.16,1,.3,1);
+}
+html.motion-ready [data-reveal="meal"].reveal-pending picture {
+  clip-path:polygon(0 9%,100% 0,100% 91%,0 100%);
+  transition:none;
+}
+html.motion-ready .dinner-stage[data-reveal="meal"] .display {
+  transition:opacity .75s .16s ease,transform 1s .16s cubic-bezier(.16,1,.3,1);
+}
+html.motion-ready .dinner-stage[data-reveal="meal"].reveal-pending .display {
+  opacity:0;
+  transform:translateY(12px);
+  transition:none;
+}
 
 
 
@@ -1080,7 +1133,7 @@ html.motion-ready .photo-window[data-reveal] {
     font-size:96px;
   }
   .lunch-feature {
-    padding-block:15px 80px;
+    padding-block:calc(var(--section-slope) + 44px) calc(80px + var(--section-slope));
   }
   .lunch-layout {
     display:flex;
@@ -1133,7 +1186,7 @@ html.motion-ready .photo-window[data-reveal] {
     margin-top:13px;
   }
   .dinner-feature {
-    padding-block:35px 70px;
+    padding-block:calc(var(--section-slope) + 44px) 70px;
   }
   .dinner-top {
     margin-bottom:23px;
